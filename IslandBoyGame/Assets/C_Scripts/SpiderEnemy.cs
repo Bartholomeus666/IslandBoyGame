@@ -11,17 +11,17 @@ public class SpiderEnemy : EnemyBase
 
     private void Awake()
     {
-        _agent = new NavMeshAgent();
+
     }
     public SpiderEnemy()
     {
         EnemyIdleState idle = new EnemyIdleState();
         idle.PlayerInRoom += PlayerInRoom_Invoked;
-        StateMachine = new EnemyStateMachine(idle);
+        StateMachine = new EnemyStateMachine(new EnemyMovingState(_agent, _targets));
     }
 
     private void PlayerInRoom_Invoked(object sender, EventArgs e)
     {
-        StateMachine.MoveToState(new EnemyMovingState(_agent, _targets));
+        //StateMachine.MoveToState();
     }
 }
