@@ -49,15 +49,10 @@ public class CharacterRotation : MonoBehaviour
         rotationX = Mathf.Clamp(rotationX, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0f);
-
-        //if (playerBody != null)
-        //{
-        //    playerBody.rotation = Quaternion.Euler(0f, rotationY, 0f);
-        //}
     }
     private void Update()
     {
-        Debug.Log(rotationX);
+        //Debug.Log(rotationX);
     }
 }
 

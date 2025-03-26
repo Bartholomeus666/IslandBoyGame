@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1186120998921707795}
   serializedVersion: 2
   m_LocalRotation: {x: -0.6178312, y: -0.02998115, z: -0.023585115, w: 0.7853851}
-  m_LocalPosition: {x: 0.613, y: 0.28100002, z: 0.184}
+  m_LocalPosition: {x: 0.613, y: 0.401, z: 0.354}
   m_LocalScale: {x: 0.28582, y: 0.57401234, z: 0.28582}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -224,7 +224,7 @@ Transform:
   m_GameObject: {fileID: 1911953389536845141}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.61, z: 0.025}
+  m_LocalPosition: {x: 0, y: 1.951, z: 0.025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -263,7 +263,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 110
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -361,7 +361,7 @@ Transform:
   m_GameObject: {fileID: 6654598578859645080}
   serializedVersion: 2
   m_LocalRotation: {x: -0.61376506, y: -0.09481604, z: -0.07458811, w: 0.78021735}
-  m_LocalPosition: {x: -0.549, y: 0.28100002, z: 0.03199996}
+  m_LocalPosition: {x: -0.549, y: 0.40100002, z: 0.20199996}
   m_LocalScale: {x: 0.28582, y: 0.57401234, z: 0.28582}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -658,7 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterController: {fileID: 3436440970773435133}
-  speed: 3
+  speed: 4
   gravity: -9
   jumpStrength: 2
 --- !u!114 &2803593372309249024

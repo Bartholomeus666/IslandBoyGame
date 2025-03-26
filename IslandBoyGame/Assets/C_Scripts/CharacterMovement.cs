@@ -28,11 +28,8 @@ public class CharacterMovement : MonoBehaviour
 
         _characterController.Move(_moveVector * speed * Time.deltaTime);
 
-
-
-
-        Debug.Log(_moveVector);
-        Debug.Log(_characterController.isGrounded);
+        //Debug.Log(_moveVector);
+        //Debug.Log(_characterController.isGrounded);
     }
 
     public void MoveFunction(InputAction.CallbackContext context)
