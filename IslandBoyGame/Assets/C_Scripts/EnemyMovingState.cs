@@ -4,20 +4,19 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class EnemyMovingState : MonoBehaviour, IState
+public class EnemyMovingState :IState
 {
-    private NavMeshAgent agent;
-    public GameObject target;
+    public GameObject[] Targets;
+    private NavMeshAgent _agent;
 
-    private void Start()
+    public EnemyMovingState(NavMeshAgent agent)
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.destination = target.transform.position;
+        _agent = agent;
     }
 
     public void OnEnter()
     {
-
+        _agent.destination = Targets[0].transform.position;
     }
 
     public void OnExit()
@@ -27,6 +26,6 @@ public class EnemyMovingState : MonoBehaviour, IState
 
     void IState.Update()
     {
-        agent.destination = target.transform.position;
+
     }
 }
