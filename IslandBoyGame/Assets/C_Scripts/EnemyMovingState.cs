@@ -6,17 +6,18 @@ using UnityEngine.AI;
 
 public class EnemyMovingState :IState
 {
-    public GameObject[] Targets;
+    private GameObject[] _targets;
     private NavMeshAgent _agent;
 
-    public EnemyMovingState(NavMeshAgent agent)
+    public EnemyMovingState(NavMeshAgent agent, GameObject[] targets)
     {
         _agent = agent;
+        _targets = targets;
     }
 
     public void OnEnter()
     {
-        _agent.destination = Targets[0].transform.position;
+        _agent.destination = _targets[0].transform.position;
     }
 
     public void OnExit()

@@ -7,6 +7,7 @@ public class SpiderEnemy : EnemyBase
     public EnemyStateMachine StateMachine;
 
     [SerializeField] private NavMeshAgent _agent;
+    [SerializeField] private GameObject[] _targets;
 
     private void Awake()
     {
@@ -21,6 +22,6 @@ public class SpiderEnemy : EnemyBase
 
     private void PlayerInRoom_Invoked(object sender, EventArgs e)
     {
-        StateMachine.MoveToState(new EnemyMovingState(_agent));
+        StateMachine.MoveToState(new EnemyMovingState(_agent, _targets));
     }
 }
