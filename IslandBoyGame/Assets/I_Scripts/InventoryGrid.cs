@@ -35,7 +35,10 @@ public class InventoryGrid : MonoBehaviour
     public bool TryPlaceItem(InventoryItem item, int topLeftX, int topLeftY)
     {
         if (!CanPlaceItem(item, topLeftX, topLeftY))
+        {
+            Debug.Log("unable to place item there..");
             return false;
+        }
 
         PlaceItem(item, topLeftX, topLeftY);
         return true;
@@ -69,9 +72,25 @@ public class InventoryGrid : MonoBehaviour
         GameObject itemObject = new GameObject(item.itemName);
         itemObject.transform.SetParent(transform);
 
+        // Create a single image for the entire item
+        GameObject itemVisual = new GameObject("ItemVisual");
+        itemVisual.transform.SetParent(itemObject.transform);
+
+        // Add Image component
+        Image image = itemVisual.AddComponent<Image>();
+        image.sprite = item.icon;
+        image.color = item.itemColor;
+
+        RectTransform rectTransform = itemVisual.GetComponent<RectTransform>();
+
+        // Calculate bounds
+        int minX = int.MaxValue, minY = int.MaxValue;
+        int maxX = int.MinValue, maxY = int.MinValue;
+
+        // First pass: determine item boundaries and mark cells as occupied
         for (int y = 0; y < item.shape.GetLength(1); y++)
         {
-            for (int x = 0;x < item.shape.GetLength(0); x++)
+            for (int x = 0; x < item.shape.GetLength(0); x++)
             {
                 if (!item.shape[x, y])
                     continue;
@@ -79,18 +98,70 @@ public class InventoryGrid : MonoBehaviour
                 int gridX = topLeftX + x;
                 int gridY = topLeftY + y;
 
+                // Mark as occupied
                 occupiedCells[gridX, gridY] = true;
 
-                GameObject cellVisual = new GameObject($"Cell_{x}_{y}");
-                cellVisual.transform.SetParent(itemObject.transform);
+                // Track min/max for calculating bounds
+                minX = Mathf.Min(minX, gridX);
+                minY = Mathf.Min(minY, gridY);
+                maxX = Mathf.Max(maxX, gridX);
+                maxY = Mathf.Max(maxY, gridY);
+            }
+        }
 
-                Image image = cellVisual.AddComponent<Image>();
-                image.sprite = item.icon;
-                image.color = item.itemColor;
+        // Calculate width and height in grid cells
+        int cellWidth = maxX - minX + 1;
+        int cellHeight = maxY - minY + 1;
 
-                RectTransform rectTransform = cellVisual.GetComponent<RectTransform>();
-                rectTransform.position = slots[gridX, gridY].GetComponent<RectTransform>().position;
-                rectTransform.sizeDelta = slots[gridX, gridY].GetComponent <RectTransform>().sizeDelta;
+        // Get reference to the first cell's position (top-left)
+        RectTransform firstCellRect = slots[minX, minY].GetComponent<RectTransform>();
+
+        // Get size of a single cell
+        Vector2 cellSize = firstCellRect.sizeDelta;
+
+        // Set position to the center of all occupied cells
+        rectTransform.position = firstCellRect.position;
+
+        // Adjust position to account for the pivot (assuming pivot is at 0.5, 0.5)
+        float offsetX = (cellWidth - 1) * cellSize.x * 0.5f;
+        float offsetY = (cellHeight - 1) * cellSize.y * 0.5f;
+
+        rectTransform.position = new Vector3(
+            firstCellRect.position.x + offsetX,
+            firstCellRect.position.y - offsetY,
+            firstCellRect.position.z
+        );
+
+        // Set the size to cover all occupied cells
+        rectTransform.sizeDelta = new Vector2(
+            cellWidth * cellSize.x,
+            cellHeight * cellSize.y
+        );
+
+        // Optionally: Create invisible placeholders for each occupied cell for debugging
+        // or to handle cell-specific events
+        for (int y = 0; y < item.shape.GetLength(1); y++)
+        {
+            for (int x = 0; x < item.shape.GetLength(0); x++)
+            {
+                if (!item.shape[x, y])
+                    continue;
+
+                int gridX = topLeftX + x;
+                int gridY = topLeftY + y;
+
+                GameObject cellPlaceholder = new GameObject($"Cell_{x}_{y}");
+                cellPlaceholder.transform.SetParent(itemObject.transform);
+
+                RectTransform cellRect = cellPlaceholder.AddComponent<RectTransform>();
+                cellRect.position = slots[gridX, gridY].GetComponent<RectTransform>().position;
+                cellRect.sizeDelta = slots[gridX, gridY].GetComponent<RectTransform>().sizeDelta;
+
+                // Optional: Add a transparent image for raycasting purposes
+                /*
+                Image placeholderImage = cellPlaceholder.AddComponent<Image>();
+                placeholderImage.color = new Color(0, 0, 0, 0); // Fully transparent
+                */
             }
         }
     }

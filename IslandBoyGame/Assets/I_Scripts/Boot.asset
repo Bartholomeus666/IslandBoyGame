@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Boot
   m_EditorClassIdentifier: 
   itemName: Boot
-  icon: {fileID: 0}
-  itemColor: {r: 1, g: 0, b: 0, a: 1}
-  width: 3
+  icon: {fileID: -1622137071, guid: 9f55780702fdb1547b11b5d7a4493608, type: 3}
+  itemColor: {r: 1, g: 1, b: 1, a: 1}
+  width: 2
   height: 3
-  shapeString: '100
+  shapeString: '10
 
-    100
+    10
 
-    110'
+    11'

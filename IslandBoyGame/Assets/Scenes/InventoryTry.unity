@@ -315,53 +315,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38550837}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &169992487
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 169992489}
-  - component: {fileID: 169992488}
-  m_Layer: 0
-  m_Name: ItemCreator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &169992488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169992487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee65c3aeddf23c4a87fa79f463efcbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 4700555722092431681, guid: c69883e8598586542b4226775b1bf5a2, type: 3}
-  itemSprites: []
-  itemsContainer: {fileID: 0}
---- !u!4 &169992489
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169992487}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &235588383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,7 +2566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8275905a23f5a624d854aba6f0d663d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotPrefab: {fileID: 5293893620236171023, guid: 5ec73871bc75cc84b9cceb3b8a202366, type: 3}
+  slotPrefab: {fileID: 6786657211192143391, guid: 69e6abea395a1694f8e741d0bc87b46c, type: 3}
   gridWidth: 5
   gridHeight: 5
 --- !u!114 &1620526787
@@ -2636,8 +2589,8 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 120, y: 120}
-  m_Spacing: {x: -3, y: -3}
+  m_CellSize: {x: 96, y: 96}
+  m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 5
 --- !u!1 &1646463387
@@ -3858,7 +3811,6 @@ SceneRoots:
   - {fileID: 2000808228}
   - {fileID: 1269339256}
   - {fileID: 531221857}
-  - {fileID: 169992489}
   - {fileID: 235588387}
   - {fileID: 1475799463}
   - {fileID: 2061896405}
