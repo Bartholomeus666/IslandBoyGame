@@ -13,7 +13,7 @@ public class InventoryTest : MonoBehaviour
 
     private void PlaceBoot()
     {
-        inventoryGrid.TryPlaceItem(bootItem, 0, 1);
-        inventoryGrid.TryPlaceItem(bootItem, 1, 0);
+        inventoryGrid.TryPlaceItem(bootItem, 0, 0);
+        inventoryGrid.TryPlaceItem(bootItem, 2, 2);
     }
 }
