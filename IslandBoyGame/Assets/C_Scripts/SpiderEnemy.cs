@@ -27,12 +27,16 @@ public class SpiderEnemy : MonoBehaviour
 
         // Initialize states
         EnemyIdleState idle = new EnemyIdleState();
+        EnemyMovingState move = new EnemyMovingState(_agent, _targets);
         idle.PlayerInRoom += PlayerInRoom_Invoked;
 
         // Create state machine with initial state
-        StateMachine = new EnemyStateMachine(new EnemyMovingState(_agent, _targets));
+        StateMachine = new EnemyStateMachine(move);
     }
-
+    private void Update()
+    {
+        StateMachine.Update();
+    }
     private void PlayerInRoom_Invoked(object sender, EventArgs e)
     {
         //StateMachine.MoveToState();

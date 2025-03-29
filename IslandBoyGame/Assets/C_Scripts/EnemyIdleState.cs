@@ -15,7 +15,7 @@ public class EnemyIdleState : IState
 
     }
 
-    void IState.Update()
+    public void Update()
     {
 
     }

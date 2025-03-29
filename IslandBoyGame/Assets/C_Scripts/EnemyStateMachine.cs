@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class EnemyStateMachine
 {
-    private IState _currentState;
+    public IState CurrentState;
 
     public EnemyStateMachine(IState startState)
     {
-        _currentState = startState;
-        _currentState.OnEnter();
+        CurrentState = startState;
+        CurrentState.OnEnter();
     }
 
     public void Update()
     {
-        _currentState.Update();
+        CurrentState.Update();
     }
 
     public void MoveToState(IState nextState)
     {
-        _currentState.OnExit();
-        _currentState = nextState;
-        _currentState.OnEnter();
+        CurrentState.OnExit();
+        CurrentState = nextState;
+        CurrentState.OnEnter();
     }
 }
 public enum EnemyState
