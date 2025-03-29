@@ -13,10 +13,13 @@ public class EnemyMovingState :IState
     {
         _agent = agent;
         _targets = targets;
+        Debug.Log(_targets.Length);
+
     }
 
     public void OnEnter()
     {
+        Debug.Log(_targets.Length);
         _agent.destination = _targets[0].transform.position;
     }
 

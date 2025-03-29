@@ -2,21 +2,34 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SpiderEnemy : EnemyBase
+public class SpiderEnemy : MonoBehaviour
 {
     public EnemyStateMachine StateMachine;
-
-    [SerializeField] private NavMeshAgent _agent;
+    private NavMeshAgent _agent;
     [SerializeField] private GameObject[] _targets;
 
     private void Awake()
     {
+        // Get the NavMeshAgent component
+        _agent = GetComponent<NavMeshAgent>();
 
+        // Initialize state machine after components are available
+        InitializeStateMachine();
     }
-    public SpiderEnemy()
+
+    private void InitializeStateMachine()
     {
+        if (_agent == null)
+        {
+            Debug.LogError("NavMeshAgent component not found on " + gameObject.name);
+            return;
+        }
+
+        // Initialize states
         EnemyIdleState idle = new EnemyIdleState();
         idle.PlayerInRoom += PlayerInRoom_Invoked;
+
+        // Create state machine with initial state
         StateMachine = new EnemyStateMachine(new EnemyMovingState(_agent, _targets));
     }
 
@@ -24,4 +37,14 @@ public class SpiderEnemy : EnemyBase
     {
         //StateMachine.MoveToState();
     }
+
+    //// Unity uses OnDestroy for cleanup
+    //private void OnDestroy()
+    //{
+    //    // Clean up event subscriptions if needed
+    //    if (StateMachine != null && StateMachine.CurrentState is EnemyIdleState idleState)
+    //    {
+    //        idleState.PlayerInRoom -= PlayerInRoom_Invoked;
+    //    }
+    //}
 }
