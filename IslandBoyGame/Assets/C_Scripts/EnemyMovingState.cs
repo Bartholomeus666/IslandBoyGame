@@ -1,23 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 
-public class EnemyMovingState : MonoBehaviour, IState
+public class EnemyMovingState :IState
 {
-    private NavMeshAgent agent;
-    public GameObject target;
+    private GameObject[] _targets;
+    private NavMeshAgent _agent;
+    private CharacterController _player;
 
-    private void Start()
+    public EnemyMovingState(NavMeshAgent agent, GameObject[] targets)
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.destination = target.transform.position;
+        _agent = agent;
+        _targets = targets;
+        _player = GameObject.FindAnyObjectByType<CharacterController>();
     }
 
     public void OnEnter()
     {
-
+        Debug.Log(_targets.Length);
+        _agent.destination = _targets[0].transform.position;
     }
 
     public void OnExit()
@@ -25,8 +29,26 @@ public class EnemyMovingState : MonoBehaviour, IState
 
     }
 
-    void IState.Update()
+    public void Update()
     {
-        agent.destination = target.transform.position;
+        _agent.destination = FindDestinationAwayFromPlayer().transform.position;
+    }
+
+    private GameObject FindDestinationAwayFromPlayer()
+    {
+        float distance = 0;
+        GameObject transform = null;
+
+        foreach(GameObject target in _targets)
+        {
+            if(Vector3.Distance(_player.transform.position, target.transform.position) > distance)
+            {
+                distance = Vector3.Distance(_player.transform.position, target.transform.position);
+                transform = target;
+            }
+        }
+        Debug.Log(distance);
+        Debug.Log(transform.name);
+        return transform;
     }
 }
