@@ -19,7 +19,12 @@ public class InventoryGrid : MonoBehaviour
 
     void Start()
     {
-        startPosition = new Vector2(startPosition.x + cellSize / 2, startPosition.y - cellSize / 2);
+        
+        //startPosition = new Vector2(startPosition.x + cellSize / 2, startPosition.y - cellSize / 2);
+
+        //NAND
+        startPosition = new Vector2(cellSize / 2, Screen.height - cellSize / 2);
+
         GenerateInventoryGrid();
     }
 
