@@ -10,6 +10,8 @@ public class InventoryGrid : MonoBehaviour
     [SerializeField] private Transform gridParent;
     [SerializeField] private Vector2 startPosition;
 
+    private Vector2 _resolution;
+
     private InventoryCell[,] grid;
     private Dictionary<InventoryItem, List<Vector2Int>> itemOccupiedCells = new Dictionary<InventoryItem, List<Vector2Int>>();
 
@@ -19,9 +21,12 @@ public class InventoryGrid : MonoBehaviour
 
     void Start()
     {
-        
+
         //startPosition = new Vector2(startPosition.x + cellSize / 2, startPosition.y - cellSize / 2);
 
+        _resolution = new Vector2(Screen.width / 1920, Screen.height / 1080);
+
+        cellSize *= (1+_resolution.x);
         //NAND
         startPosition = new Vector2(cellSize / 2, Screen.height - cellSize / 2);
 
