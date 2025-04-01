@@ -455,6 +455,7 @@ GameObject:
   - component: {fileID: 1554231490935840379}
   - component: {fileID: 2803593372309249024}
   - component: {fileID: 7866421520515692113}
+  - component: {fileID: 8968863581274072914}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -674,8 +675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94615bcda711e8c46a3daf3ce71a71c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookSpeedX: 3
-  lookSpeedY: 3
+  lookSpeedX: 4.5
+  lookSpeedY: 4.5
+  playerBody: {fileID: 1546941610614145256}
+  cameraTransform: {fileID: 8747521138785437284}
 --- !u!114 &7866421520515692113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,3 +692,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 18.9
+  HealthCanvas: {fileID: 0}
+--- !u!114 &8968863581274072914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7621315787918855790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00163a4768c4a44dac6a01bcec6111d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMana: 100
+  currentMana: 100

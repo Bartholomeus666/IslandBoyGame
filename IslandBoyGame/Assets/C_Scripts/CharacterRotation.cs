@@ -3,20 +3,18 @@ using UnityEngine.InputSystem;
 
 public class CharacterRotation : MonoBehaviour
 {
-    [SerializeField] private float lookSpeedX = 2.0f; // Rotation speed on the X-axis
-    [SerializeField] private float lookSpeedY = 2.0f; // Rotation speed on the Y-axis
-    [SerializeField] private Transform playerBody; // Reference to the player's body
-    [SerializeField] private Transform cameraTransform; // Reference to the camera
+    [SerializeField] private float lookSpeedX = 2.0f;
+    [SerializeField] private float lookSpeedY = 2.0f;
+    [SerializeField] private Transform playerBody;
+    [SerializeField] private Transform cameraTransform;
 
-    private float rotationX = 0f; // Current X rotation of the camera
+    private float rotationX = 0f;
 
     private void Start()
     {
-        // If camera transform not set, use this transform
         if (cameraTransform == null)
             cameraTransform = transform;
 
-        // If player body not set, use parent as default
         if (playerBody == null && transform.parent != null)
             playerBody = transform.parent;
 
@@ -28,7 +26,6 @@ public class CharacterRotation : MonoBehaviour
     {
         Vector2 mouseDelta = context.ReadValue<Vector2>();
 
-        // Handle vertical rotation (looking up/down)
         rotationX -= mouseDelta.y * lookSpeedY * Time.deltaTime;
         rotationX = Mathf.Clamp(rotationX, -55f, 55f);
 

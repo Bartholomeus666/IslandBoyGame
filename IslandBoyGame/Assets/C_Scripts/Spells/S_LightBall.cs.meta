@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 10017c132a6088d4a8670db986d5c21f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - lightBallPrefab: {fileID: 7445497422243806778, guid: 5b0f66b916f2bc446ae98e3fac185c09, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
