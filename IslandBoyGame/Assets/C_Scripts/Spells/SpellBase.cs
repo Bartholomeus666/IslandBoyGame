@@ -24,7 +24,7 @@ public abstract class SpellBase : ScriptableObject
         }
 
         // Check if caster has enough mana
-        ManaComponent manaComponent = caster.GetComponent<ManaComponent>();
+        ManaComponent manaComponent = caster.GetComponentInParent<ManaComponent>();
         if (manaComponent != null && manaComponent.CurrentMana < manaCost)
         {
             Debug.Log($"Not enough mana to cast {spellName}");
@@ -62,7 +62,7 @@ public abstract class SpellBase : ScriptableObject
         yield return new WaitForSeconds(castTime);
 
         // Cast is complete, apply effects
-        ManaComponent manaComponent = caster.GetComponent<ManaComponent>();
+        ManaComponent manaComponent = caster.GetComponentInParent<ManaComponent>();
         if (manaComponent != null)
         {
             manaComponent.UseMana(manaCost);

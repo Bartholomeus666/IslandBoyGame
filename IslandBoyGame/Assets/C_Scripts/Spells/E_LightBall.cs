@@ -12,7 +12,6 @@ public class E_LightBall : MonoBehaviour
     {
         if (_spellGo)
         {
-            rb.AddForce(transform.forward * speed); 
             lifetime -= Time.deltaTime;
             if (lifetime < 0)
             {
@@ -24,5 +23,18 @@ public class E_LightBall : MonoBehaviour
     public void Fire()
     {
         _spellGo = true;
+        this.transform.parent = null;
+
+
+        Debug.Log(transform.forward);
+
+        rb.AddForce(this.transform.forward * speed, ForceMode.Impulse);
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 }
