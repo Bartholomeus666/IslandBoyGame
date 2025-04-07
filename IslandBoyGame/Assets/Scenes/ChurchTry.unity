@@ -1055,12 +1055,12 @@ GameObject:
   - component: {fileID: 1371229946}
   - component: {fileID: 1371229945}
   m_Layer: 5
-  m_Name: Canvas_Blood
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1371229945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1197,9 +1197,21 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7866421520515692113, guid: c672248aaacc00048831c3d4b77140d0, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7866421520515692113, guid: c672248aaacc00048831c3d4b77140d0, type: 3}
+      propertyPath: HealthPanel
+      value: 
+      objectReference: {fileID: 1623860442}
+    - target: {fileID: 7866421520515692113, guid: c672248aaacc00048831c3d4b77140d0, type: 3}
       propertyPath: HealthCanvas
       value: 
       objectReference: {fileID: 1371229947}
+    - target: {fileID: 7866421520515692113, guid: c672248aaacc00048831c3d4b77140d0, type: 3}
+      propertyPath: HealthVignettePanel
+      value: 
+      objectReference: {fileID: 1623860442}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1352,12 +1364,12 @@ GameObject:
   - component: {fileID: 1623860445}
   - component: {fileID: 1623860444}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: BloodVignette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1623860443
 RectTransform:
   m_ObjectHideFlags: 0

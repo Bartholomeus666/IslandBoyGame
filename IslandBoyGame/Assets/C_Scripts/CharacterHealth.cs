@@ -2,31 +2,49 @@ using UnityEngine;
 
 public class CharacterHealth : MonoBehaviour
 {
-    public float health = 100;
-    public Canvas HealthCanvas;
+    [Header("Health")]
+    [SerializeField] private float maxHealth = 100;
+    public float currentHealth = 100;
+    private GameObject healthVignettePanel;
+
+    private void Start()
+    {
+        Canvas canvas = FindAnyObjectByType<Canvas>();
+
+        if (canvas != null)
+        {
+            healthVignettePanel = canvas.transform.Find("BloodVignette").gameObject;
+        }
+    }
 
     public void LoseHealth(float damage)
     {
-        health -= damage;
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         CheckIfLowHealth();
     }
 
     public void GainHealth(float heals)
     {
-        health += heals;
+        currentHealth += heals;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         CheckIfLowHealth();
     }
 
     private void CheckIfLowHealth()
     {
-        if(health < 0)
+        if (currentHealth < 0)
         {
             Debug.Log("Death");
         }
-        else if (health < 20)
+        else if (currentHealth < 20)
         {
-            Debug.Log("Bloody vignet"); 
-            HealthCanvas.gameObject.SetActive(true);
-        } 
+            Debug.Log("Bloody vignette");
+            healthVignettePanel.gameObject.SetActive(true);
+        }
+        else if (currentHealth > 20)
+        {
+            healthVignettePanel.gameObject.SetActive(false);
+        }
     }
 }
