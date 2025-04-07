@@ -20,7 +20,6 @@ public class EnemyMovingState :IState
 
     public void OnEnter()
     {
-        Debug.Log(_targets.Length);
         _agent.destination = _targets[0].transform.position;
     }
 
@@ -47,8 +46,6 @@ public class EnemyMovingState :IState
                 transform = target;
             }
         }
-        Debug.Log(distance);
-        Debug.Log(transform.name);
         return transform;
     }
 }
