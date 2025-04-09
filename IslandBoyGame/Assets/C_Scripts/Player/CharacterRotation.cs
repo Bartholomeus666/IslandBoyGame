@@ -17,25 +17,27 @@ public class CharacterRotation : MonoBehaviour
 
         if (playerBody == null && transform.parent != null)
             playerBody = transform.parent;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
-    public void LookAction(InputAction.CallbackContext context)
+    private void OnEnable()
     {
-        Vector2 mouseDelta = context.ReadValue<Vector2>();
+        PlayerInputHandler.OnLookInput += HandleLookInput;
+    }
 
+    private void OnDisable()
+    {
+        PlayerInputHandler.OnLookInput -= HandleLookInput;
+    }
+
+    private void HandleLookInput(Vector2 mouseDelta)
+    {
         rotationX -= mouseDelta.y * lookSpeedY * Time.deltaTime;
         rotationX = Mathf.Clamp(rotationX, -55f, 55f);
 
-        // Apply vertical rotation to camera only
         cameraTransform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
 
-        // Handle horizontal rotation (looking left/right) - applied to the body
         if (playerBody != null)
         {
-            // Rotate player body horizontally without affecting the existing rotation
             float yRotation = playerBody.eulerAngles.y + (mouseDelta.x * lookSpeedX * Time.deltaTime);
             playerBody.rotation = Quaternion.Euler(playerBody.eulerAngles.x, yRotation, playerBody.eulerAngles.z);
         }

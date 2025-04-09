@@ -624,9 +624,10 @@ GameObject:
   - component: {fileID: 2803593372309249024}
   - component: {fileID: 7866421520515692113}
   - component: {fileID: 8968863581274072914}
+  - component: {fileID: 7172593503191099462}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -701,8 +702,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1554231490935840379}
-        m_TargetAssemblyTypeName: CharacterMovement, Assembly-CSharp
+      - m_Target: {fileID: 7172593503191099462}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
         m_MethodName: MoveFunction
         m_Mode: 0
         m_Arguments:
@@ -717,8 +718,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2803593372309249024}
-        m_TargetAssemblyTypeName: CharacterRotation, Assembly-CSharp
+      - m_Target: {fileID: 7172593503191099462}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
         m_MethodName: LookAction
         m_Mode: 0
         m_Arguments:
@@ -757,8 +758,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Crouch[/Keyboard/c]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1554231490935840379}
-        m_TargetAssemblyTypeName: CharacterMovement, Assembly-CSharp
+      - m_Target: {fileID: 7172593503191099462}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
         m_MethodName: JumpFunction
         m_Mode: 0
         m_Arguments:
@@ -784,46 +785,6 @@ MonoBehaviour:
     m_ActionId: 641cd816-40e6-41b4-8c3d-04687c349290
     m_ActionName: 'Player/Sprint[/Keyboard/leftShift]'
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
-    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7607c7b6-cd76-4816-beef-bd0341cfe950
-    m_ActionName: 'UI/Submit[/Keyboard/enter]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 15cef263-9014-4fd5-94d9-4e4a6234a6ef
-    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 32b35790-4ed0-4e9a-aa41-69ac6d629449
-    m_ActionName: 'UI/Point[/Mouse/position,/Pen/position]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3c7022bf-7922-4f7c-a998-c437916075ad
-    m_ActionName: 'UI/Click[/Mouse/leftButton,/Pen/tip]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 44b200b1-1557-4083-816c-b22cbdf77ddf
-    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: dad70c86-b58c-4b17-88ad-f5e53adf419e
-    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0489e84a-4833-4c40-bfae-cea84b696689
-    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 24908448-c609-4bc3-a128-ea258674378a
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
-    m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7866421520515692113}
         m_TargetAssemblyTypeName: CharacterHealth, Assembly-CSharp
@@ -839,6 +800,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: bed1dac7-7226-4150-a6f1-424068cbaa04
     m_ActionName: 'Player/RandomButton_P[/Keyboard/p]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7172593503191099462}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: InventoryToggle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 57a0f8c3-f427-4c5d-92e3-003b8ae7d0d5
+    m_ActionName: 'UI/ToggleInventory[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -856,10 +833,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c586727e8f48e479876c435d332a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterController: {fileID: 3436440970773435133}
+  characterController: {fileID: 3436440970773435133}
   speed: 4
   gravity: -9
-  jumpStrength: 2
+  jumpStrength: 5
 --- !u!114 &2803593372309249024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,8 +865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa01d3fa190b30647b6559fa565fd1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 18.9
-  HealthCanvas: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 100
 --- !u!114 &8968863581274072914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,3 +881,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMana: 100
   currentMana: 100
+--- !u!114 &7172593503191099462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7621315787918855790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49184db64fe6f2b45af131361289c794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
