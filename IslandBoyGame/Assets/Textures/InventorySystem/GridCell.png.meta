@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f55780702fdb1547b11b5d7a4493608
+guid: f636b4420f7428b45bac9cac8fd9c0f7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BootTexture_0
+      name: GridCell_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 288
+        width: 125
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f2ef12d8085c1a41973621c42f1bc18
-      internalID: -1622137071
+      spriteID: 0d1770a8e16f1db4d919fb97f3335fef
+      internalID: 702020112
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ff7ad277a5f78db49922438e56041761
+    spriteID: 02b7f4e2ebaa3ad478e779eeb051a0ae
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BootTexture_0: -1622137071
+      GridCell_0: 702020112
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
