@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ public class GridGenerator : MonoBehaviour
     [Header("Grid Position")]
     [SerializeField] private Vector2 gridOffset = Vector2.zero;
 
-    private GameObject[,] grid;
+    private GridCell[,] grid;
 
     private void Awake()
     {
@@ -24,7 +25,7 @@ public class GridGenerator : MonoBehaviour
 
     private void GenerateGrid()
     {
-        grid = new GameObject[gridWidth, gridHeight];
+        grid = new GridCell[gridWidth, gridHeight];
 
         // Get cell dimensions to use for spacing
         RectTransform cellRectTransform = gridCell.GetComponent<RectTransform>();
@@ -39,12 +40,42 @@ public class GridGenerator : MonoBehaviour
         {
             for (int j = 0; j < gridHeight; j++)
             {
-                grid[i, j] = Instantiate(gridCell, Vector3.zero, Quaternion.identity, gridParent);
-                grid[i, j].name = $"Cell ({i}, {j})";
+                GameObject cellObject = Instantiate(gridCell, Vector2.zero, Quaternion.identity, gridParent);
+                cellObject.name = ($"cell ({i}, {j})");
 
-                RectTransform rectTransform = grid[i, j].GetComponent<RectTransform>();
+                RectTransform rectTransform = cellObject.GetComponent<RectTransform>();
                 rectTransform.anchoredPosition = new Vector2(startX + i * cellWidth, startY - j * cellHeight);
+
+                GridCell cellComponent = cellObject.GetComponent<GridCell>();
+
+                cellComponent.Initialize(i, j);
+                grid[i, j] = cellComponent;
             }
+        }
+    }
+
+    public GridCell GetCell(int x, int y)
+    {
+        if (x >= 0 && x < gridWidth && y >= 0 && y < gridHeight)
+        {
+            return grid[x, y];
+        }
+        return null;
+    }
+
+    public bool IsCellOccupied(int x, int y)
+    {
+        GridCell cell = GetCell(x, y);
+        return cell != null && cell.IsOccupied;
+    }
+
+    public void SetCellOccupied(int x, int y, bool occupied)
+    {
+        GridCell cell = GetCell(x, y);
+        if (cell != null)
+        {
+            cell.SetOccupied(occupied);
+            cell.name = ($"cell ({x}, {y}) (occupied)");
         }
     }
 }
