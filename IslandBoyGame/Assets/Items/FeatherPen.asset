@@ -9,15 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0449f87a99e04b347b7f756c1470369f, type: 3}
-  m_Name: Coin
+  m_Script: {fileID: 11500000, guid: c8f71592248a99341905ef74dd11a15e, type: 3}
+  m_Name: FeatherPen
   m_EditorClassIdentifier: 
-  itemName: Coin
-  itemPrefab: {fileID: 2364176939363815065, guid: 92205d0ba4549b14e80ee3fad7929856, type: 3}
-  width: 2
+  itemName: FeatherPen
+  itemSprite: {fileID: 1536701287, guid: d05d279b047de264e8a5db619379dd8c, type: 3}
+  width: 1
   height: 2
-  shape: '11
-
-    11
-
-'

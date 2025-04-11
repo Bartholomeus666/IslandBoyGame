@@ -26,7 +26,7 @@ public class GridCell : MonoBehaviour
 
     public void SetOccupied(bool occupied)
     {
-        isOccupied = true;
+        isOccupied = occupied;
         UpdateVisual();
     }
 
