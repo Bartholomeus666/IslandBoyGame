@@ -7,8 +7,10 @@ public class GridCell : MonoBehaviour
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Sprite cellSprite;
     [SerializeField] private Sprite occupiedCellSprite;
+    [SerializeField] private Sprite placementPreviewSprite; // New texture for placement preview
 
     private bool isOccupied = false;
+    private bool isPlacementPreview = false;
     private int gridX;
     private int gridY;
 
@@ -20,13 +22,19 @@ public class GridCell : MonoBehaviour
     {
         gridX = x;
         gridY = y;
-
         backgroundImage = GetComponent<Image>();
+        UpdateVisual();
     }
 
     public void SetOccupied(bool occupied)
     {
         isOccupied = occupied;
+        UpdateVisual();
+    }
+
+    public void SetPlacementPreview(bool preview)
+    {
+        isPlacementPreview = preview;
         UpdateVisual();
     }
 
@@ -37,7 +45,11 @@ public class GridCell : MonoBehaviour
             if (isOccupied)
             {
                 backgroundImage.sprite = occupiedCellSprite;
-            } 
+            }
+            else if (isPlacementPreview)
+            {
+                backgroundImage.sprite = placementPreviewSprite;
+            }
             else
             {
                 backgroundImage.sprite = cellSprite;

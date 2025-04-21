@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8f71592248a99341905ef74dd11a15e, type: 3}
-  m_Name: FeatherPen
+  m_Name: Boot
   m_EditorClassIdentifier: 
-  itemName: FeatherPen
-  itemSprite: {fileID: 1536701287, guid: d05d279b047de264e8a5db619379dd8c, type: 3}
-  shapeString: '1
+  itemName: Boot
+  itemSprite: {fileID: 528492337, guid: 97a54b22a5f68e8468438179edbd91e4, type: 3}
+  shapeString: '10
 
-    1'
-  width: 1
-  height: 2
+    10
+
+    11'
+  width: 2
+  height: 3

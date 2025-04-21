@@ -91,3 +91,4 @@ MonoBehaviour:
   backgroundImage: {fileID: 0}
   cellSprite: {fileID: 702020112, guid: f636b4420f7428b45bac9cac8fd9c0f7, type: 3}
   occupiedCellSprite: {fileID: 1385519149, guid: c490497c1b1db9a4d917ed784adf721b, type: 3}
+  placementPreviewSprite: {fileID: 1280047786, guid: e61f83305b9f9724ba140fabbe7bbc0d, type: 3}

@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Potion
   m_EditorClassIdentifier: 
   itemName: Potion
-  itemSprite: {fileID: 1470644663, guid: fe8e261b1c061d64e830cda1875d39fe, type: 3}
+  itemSprite: {fileID: 273137496, guid: 537189781a3e76f47a359d9f1f349b9a, type: 3}
+  shapeString: '11
+
+    11'
   width: 2
   height: 2
